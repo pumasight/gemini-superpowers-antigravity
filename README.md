@@ -680,6 +680,15 @@ APPROVED
 4. Done! Check your code and artifacts/superpowers/finish.md
 ```
 
+### Verification Commands (Recommended Before PRs)
+
+```bash
+python3 -m pytest -q
+python3 -m pytest -q e2e_demo/tests/test_e2e.py
+```
+
+These are also run in CI on push and pull requests via `.github/workflows/ci.yml`.
+
 ### All Available Commands
 
 | Command | What It Does | When to Use |
