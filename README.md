@@ -1,4 +1,5 @@
 # Gemini Superpowers for Antigravity
+[![CI](https://github.com/pumasight/gemini-superpowers-antigravity/actions/workflows/ci.yml/badge.svg)](https://github.com/pumasight/gemini-superpowers-antigravity/actions/workflows/ci.yml)
 
 A systematic workflow framework for **Google Antigravity** that helps you build better code through structured planning, test-driven development, and optional parallel execution.
 
