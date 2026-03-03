@@ -2,6 +2,8 @@
 
 A systematic workflow framework for **Google Antigravity** that helps you build better code through structured planning, test-driven development, and optional parallel execution.
 
+Last updated: **March 3, 2026**
+
 Think of it as "guardrails for AI coding" - it prevents you from diving straight into code and instead guides you through brainstorming → planning → building → reviewing.
 
 > **Inspired by:** [Claude Superpowers](https://github.com/obra/superpowers)
@@ -83,6 +85,10 @@ Before starting, make sure you have these tools:
   ```
 - Should show: `Python 3.10.x` or higher
 - Don't have it? [Download Python](https://www.python.org/downloads/)
+ - If `python` is not found on your system, try:
+   ```bash
+   python3 --version
+   ```
 
 #### 🎨 Optional (Only needed for parallel execution):
 
@@ -171,7 +177,7 @@ You have two options:
    python -m venv .venv
    .\.venv\Scripts\Activate.ps1
    pip install -U pip
-   pip install fastapi uvicorn httpx pytest
+   pip install -r requirements.txt
    ```
 
    **Mac/Linux:**
@@ -179,15 +185,15 @@ You have two options:
    python -m venv .venv
    source .venv/bin/activate
    pip install -U pip
-   pip install fastapi uvicorn httpx pytest
+   pip install -r requirements.txt
    ```
 
 3. **Run the demo tests (optional but cool to see it work):**
    ```bash
-   pytest -q
+   python -m pytest -q
    ```
 
-   You should see: `6 passed` ✅
+   You should see passing tests (for this demo, currently `e2e_demo/tests/test_e2e.py`).
 
 4. **Open Antigravity in this folder**
 
@@ -211,7 +217,7 @@ You have two options:
    I will follow these instructions for the rest of this session.
    ```
 
-3. **If you see this, you're ready!** 🎉
+3. **If you see this, you're ready.**
 
 4. **If you see "command not found":**
    - Make sure Antigravity is opened in the folder that contains `.agent/`
@@ -330,7 +336,7 @@ Step 2 complete!
 
 ... (continues for each step)
 
-All steps complete! 🎉
+All steps complete.
 ```
 
 **What you do:** Just watch! The AI does the work. If it asks questions, answer them.
@@ -725,4 +731,4 @@ MIT License - See LICENSE file
 5. **Reload often:** If you edit workflows, always run `/superpowers-reload`
 6. **Ask questions:** If the plan doesn't make sense, ask the AI to clarify before approving
 
-Happy coding! 🚀
+Happy coding.
