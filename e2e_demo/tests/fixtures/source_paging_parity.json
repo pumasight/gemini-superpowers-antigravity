@@ -1,0 +1,72 @@
+{
+  "cases": [
+    {
+      "name": "first_page_default",
+      "params": {
+        "page": 1,
+        "limit": 10
+      },
+      "expected": {
+        "status_code": 200,
+        "count": 10,
+        "first_external_id": "item-1",
+        "last_external_id": "item-10",
+        "next_page": 2
+      }
+    },
+    {
+      "name": "last_partial_page",
+      "params": {
+        "page": 3,
+        "limit": 10
+      },
+      "expected": {
+        "status_code": 200,
+        "count": 5,
+        "first_external_id": "item-21",
+        "last_external_id": "item-25",
+        "next_page": null
+      }
+    },
+    {
+      "name": "past_end_page",
+      "params": {
+        "page": 4,
+        "limit": 10
+      },
+      "expected": {
+        "status_code": 200,
+        "count": 0,
+        "next_page": null
+      }
+    },
+    {
+      "name": "page_2_transient_then_success",
+      "requests": [
+        {
+          "params": {
+            "page": 2,
+            "limit": 10
+          },
+          "expected": {
+            "status_code": 500,
+            "detail_contains": "Simulated transient failure on page 2"
+          }
+        },
+        {
+          "params": {
+            "page": 2,
+            "limit": 10
+          },
+          "expected": {
+            "status_code": 200,
+            "count": 10,
+            "first_external_id": "item-11",
+            "last_external_id": "item-20",
+            "next_page": 3
+          }
+        }
+      ]
+    }
+  ]
+}
