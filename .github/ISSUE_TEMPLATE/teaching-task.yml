@@ -1,0 +1,76 @@
+name: Teaching task
+description: Propose a teaching-focused reverse-engineering task with runnable outcomes.
+title: "[Teaching]: "
+labels:
+  - teaching
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Teaching tasks should still map to runtime outcomes where possible.
+        Taxonomy reference:
+        https://github.com/pumasight/gemini-superpowers-antigravity/blob/main/docs/issue-taxonomy.md
+
+  - type: input
+    id: objective
+    attributes:
+      label: Learning objective
+      description: What should a learner understand after completing this task?
+      placeholder: "Understand event loop state transitions by tracing one frame."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: concept_area
+    attributes:
+      label: Concept tag
+      options:
+        - "concept-memory-layout"
+        - "concept-control-flow"
+        - "concept-io-protocols"
+        - "concept-tooling"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: runtime_connection
+    attributes:
+      label: Runtime correctness connection
+      description: Should this produce a runtime improvement?
+      options:
+        - "runtime-correctness: yes"
+        - "runtime-correctness: no"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - "P1"
+        - "P2"
+        - "P3"
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Concrete checks (tests, traces, docs updates).
+      placeholder: |
+        - Add test ...
+        - Add trace artifact ...
+        - Update docs ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: implementation_notes
+    attributes:
+      label: Implementation notes
+      description: Tools, references, and constraints.
+    validations:
+      required: true
+

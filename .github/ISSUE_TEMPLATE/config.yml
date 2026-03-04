@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Issue taxonomy guide
+    url: https://github.com/pumasight/gemini-superpowers-antigravity/blob/main/docs/issue-taxonomy.md
+    about: Use this to classify priority, runtime impact, and teaching value.

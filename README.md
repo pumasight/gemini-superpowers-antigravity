@@ -67,6 +67,21 @@ Automatic enforcement of good practices:
 
 ---
 
+## Project Priorities
+
+This repo is optimized for two outcomes:
+
+1. Build and maintain a working port.
+2. Teach programming through reverse-engineering workflows.
+
+Use the issue taxonomy for triage and planning:
+- [Issue Taxonomy](docs/issue-taxonomy.md)
+- [Starter Backlog](docs/starter-backlog.md)
+- [Bug-to-Lesson Template](docs/bug-to-lesson-template.md)
+- [Good-First-Teaching-Bug Policy](docs/good-first-teaching-bug-policy.md)
+
+---
+
 ## 🚀 Getting Started (Step-by-Step)
 
 ### Step 1: Check What You Have Installed
@@ -229,6 +244,36 @@ You have two options:
 ## 📖 How to Use It (Your First Task)
 
 Let's build something simple to see how it works.
+
+### Sync Demo Exit Codes
+
+For the `e2e_demo.sync_tool.sync` CLI:
+
+- `0`: Success
+- `2`: Validation/partial failure (some items failed to process)
+- `3`: Transient retries exhausted (timeouts/network/retriable HTTP exhausted)
+- `4`: Hard HTTP failure (non-retriable HTTP error)
+- `5`: Unexpected runtime failure
+
+### Sync Retry Configuration
+
+`e2e_demo.sync_tool.sync` supports retry tuning via CLI flags or environment variables:
+
+- `--retry-max-attempts` or `SYNC_RETRY_MAX_ATTEMPTS`
+- `--retry-base-delay-s` or `SYNC_RETRY_BASE_DELAY_S`
+- `--retry-max-delay-s` or `SYNC_RETRY_MAX_DELAY_S`
+- `--retry-jitter-seed` or `SYNC_RETRY_JITTER_SEED` (optional deterministic jitter for tests/CI)
+
+Validation rules:
+- All values must be positive.
+- `max_delay_s` must be greater than or equal to `base_delay_s`.
+
+Paging parity coverage is captured in:
+- `e2e_demo/tests/fixtures/source_paging_parity.json`
+
+Each sync run also emits a trace artifact:
+- `artifacts/superpowers/trace-<run_id>.json`
+- Includes retry policy, event timeline, fetched counts, outcome, and exit code.
 
 ### Example: Build a Simple Calculator CLI
 

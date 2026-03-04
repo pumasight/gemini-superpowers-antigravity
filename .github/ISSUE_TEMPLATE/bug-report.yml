@@ -1,0 +1,102 @@
+name: Bug report
+description: Report a runtime or parity bug using the project taxonomy.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use the taxonomy guide before filing:
+        https://github.com/pumasight/gemini-superpowers-antigravity/blob/main/docs/issue-taxonomy.md
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: One clear sentence describing the bug.
+      placeholder: "Sync fails on Retry-After date headers and exits with a traceback."
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction steps
+      description: Exact commands, inputs, and expected vs actual behavior.
+      placeholder: |
+        1. Start API ...
+        2. Run command ...
+        3. Observe ...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: runtime_correctness
+    attributes:
+      label: Runtime correctness impact
+      description: Select one.
+      options:
+        - "runtime-correctness: yes"
+        - "runtime-correctness: no"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: teaching_value
+    attributes:
+      label: Teaching value impact
+      description: Select one.
+      options:
+        - "teaching-value: yes"
+        - "teaching-value: no"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: Choose the closest priority level.
+      options:
+        - "P0"
+        - "P1"
+        - "P2"
+        - "P3"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: concept_area
+    attributes:
+      label: Teaching concept area
+      description: Pick the primary concept for this bug.
+      options:
+        - "concept-memory-layout"
+        - "concept-control-flow"
+        - "concept-io-protocols"
+        - "concept-tooling"
+        - "N/A"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: quality_tags
+    attributes:
+      label: Quality tags
+      description: Check all that apply.
+      options:
+        - label: parity
+        - label: regression-test-needed
+        - label: nondeterministic
+        - label: good-first-teaching-bug
+
+  - type: textarea
+    id: investigation_notes
+    attributes:
+      label: Investigation notes
+      description: Capture traces, hypotheses, and references for reproducibility.
+      placeholder: "Logs, stack traces, disassembly notes, or links."
+    validations:
+      required: true
+
